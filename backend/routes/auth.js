@@ -1,9 +1,13 @@
+// importing express 
 const express = require("express");
+// importing router from express
 const router = express.Router();
+// importing user schema from models 
 const User = require("../models/User");
+// importing express-validator and destructuring body and validationResult
 const { body, validationResult } = require("express-validator");
 
-// adding validators no login required
+// adding validators no login required and post: /api/auth/createuser
 router.post(
 	"/createuser",
 	[
@@ -20,16 +24,20 @@ router.post(
 		}
 		// check weather the user with the same email exists already
 		try {
+			// checking weather the requested email exists in data base using findOne mongo function -and this returns true
 			let user = await User.findOne({ email: req.body.email });
 			if (user) {
 				return res.status(400).json({ error: "this email id already exists" });
 			}
+			// create a new user 
 			user = await User.create({
 				name: req.body.name,
 				email: req.body.email,
 				password: req.body.password,
 				date: req.body.date,
 			});
+
+			// showing user info in response json 
 			res.json(user);
 		} catch (error) {
 			console.error("something went wrong");
