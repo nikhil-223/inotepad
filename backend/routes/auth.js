@@ -49,7 +49,7 @@ router.post(
 				name: req.body.name,
 				email: req.body.email,
 				password: secPass,
-				date: req.body.date,
+				date: req.body.date
 			});
 			const data = {
 				user: {
