@@ -60,7 +60,7 @@ router.post(
 			// showing authtoken in response json
 			res.json({ authtoken });
 		} catch (error) {
-			console.error("something went wrong");
+			console.error(error.message);
 			res.status(500).send("error occured");
 		}
 		// .then((user) => res.json(user)).catch(errrr=>{console.log(errrr)
