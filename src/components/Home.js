@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import Addnote from './Addnote'
+import React from "react";
 import Alert from "./Alert";
 import Notes from "./Notes";
 
@@ -8,7 +7,7 @@ const Home = () => {
   return (
     <>
     <Alert/>
-    <Addnote/>
+    
     <Notes/>
     </>
   )
