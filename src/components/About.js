@@ -2,12 +2,10 @@ import React, {useContext, useEffect} from 'react'
 import noteContext from '../context/note/noteContext'
 
 const About = () => {
-  const a= useContext(noteContext)
-  useEffect(() => {
-    a.update();
-  })
+  // const a= useContext(noteContext)
+  
   return (
-    <div>my name is {a.state.name} and i am in class {a.state.class}</div>
+    <div>my name is  and i am in class </div>
   )
 }
 

@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useContext } from "react";
+import Addnote from './Addnote'
+import Alert from "./Alert";
+import Notes from "./Notes";
 
 const Home = () => {
+  
   return (
-    <div>this is Home</div>
+    <>
+    <Alert/>
+    <Addnote/>
+    <Notes/>
+    </>
   )
 }
 
