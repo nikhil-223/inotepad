@@ -11,3 +11,18 @@ code {
 i{
   cursor: pointer;
 }
+#crossb{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid #ae8e8e;
+}
+.mjg{
+  position: relative;
+  margin-right: 1rem;
+}
+.bigf{
+  position: relative;
+  font-size: 1.8rem;
+  top: -0.5rem;
+}

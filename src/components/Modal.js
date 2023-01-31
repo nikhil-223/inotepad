@@ -6,45 +6,89 @@ function Modal({ name }, ref) {
 			<div className="container">
 				<button
 					type="button"
-					class="btn btn-primary"
+					className="btn btn-primary"
 					data-toggle="modal"
 					data-target="#exampleModal"
-                    ref={ref}
-                    style={{display:"none"}}
-                    >
+					ref={ref}
+					style={{ display: "none" }}>
 					{name}
 				</button>
 				<div
-					class="modal fade"
+					className="modal fade"
 					id="exampleModal"
-					tabindex="-1"
+					tabIndex="-1"
 					role="dialog"
 					aria-labelledby="exampleModalLabel"
 					aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">
-									Modal title
+					<div className="modal-dialog" role="document">
+						<div className="modal-content">
+							<div className="modal-header">
+								<h5 className="modal-title mx-3" id="exampleModalLabel">
+									Edit the Note
 								</h5>
 								<button
 									type="button"
-									class="close"
+									id="crossb"
+									className="close"
 									data-dismiss="modal"
 									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
+									<span className="bigf" aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<div class="modal-body">...</div>
-							<div class="modal-footer">
+							<div className="modal-body">
+								{/* innerform */}
+								<div className="container ">
+									<form>
+										<div className="form-group my-3">
+											<label htmlFor="exampleInputEmail1">Title</label>
+											<input
+												type="text"
+												className="form-control"
+												id="title"
+												name="title"
+												placeholder="Enter the title"
+												// onChange={handleChange}
+											/>
+										</div>
+										<div className="form-group">
+											<label className="my-1" htmlFor="description">
+												Description
+											</label>
+											<input
+												type="text"
+												className="form-control"
+												id="description"
+												name="description"
+												placeholder="Add your description here"
+												// onChange={handleChange}
+											/>
+										</div>
+										<div className="form-group">
+											<label className="my-1" htmlFor="tag">
+												Tag
+											</label>
+											<input
+												type="text"
+												className="form-control"
+												id="tag"
+												name="tag"
+												placeholder="Add your tag here"
+												// onChange={handleChange}
+											/>
+										</div>
+									</form>
+								</div>
+								{/* innerform */}
+							</div>
+							<div className="modal-footer">
 								<button
 									type="button"
-									class="btn btn-secondary"
+									className="btn btn-secondary"
 									data-dismiss="modal">
 									Close
 								</button>
-								<button type="button" class="btn btn-primary">
-									Save changes
+								<button type="button" className="btn btn-primary mjg">
+									Update Note
 								</button>
 							</div>
 						</div>
