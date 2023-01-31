@@ -26,3 +26,7 @@ i{
   font-size: 1.8rem;
   top: -0.5rem;
 }
+#modalcenter{
+  top: 50%;
+  transform: translate(0,-50%);
+}

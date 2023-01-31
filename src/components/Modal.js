@@ -1,6 +1,13 @@
-import React from "react";
+import React,{useRef} from "react";
 
-function Modal({ name }, ref) {
+function Modal(props, ref) {
+    const {note, handleChange,handleUpdate}=props;
+    
+    const closeRef = useRef(null);
+    const closeR=()=>{
+        closeRef.current.click();
+    }
+
 	return (
 		<>
 			<div className="container">
@@ -11,7 +18,7 @@ function Modal({ name }, ref) {
 					data-target="#exampleModal"
 					ref={ref}
 					style={{ display: "none" }}>
-					{name}
+					showme
 				</button>
 				<div
 					className="modal fade"
@@ -20,7 +27,7 @@ function Modal({ name }, ref) {
 					role="dialog"
 					aria-labelledby="exampleModalLabel"
 					aria-hidden="true">
-					<div className="modal-dialog" role="document">
+					<div id="modalcenter" className="modal-dialog" role="document">
 						<div className="modal-content">
 							<div className="modal-header">
 								<h5 className="modal-title mx-3" id="exampleModalLabel">
@@ -32,7 +39,9 @@ function Modal({ name }, ref) {
 									className="close"
 									data-dismiss="modal"
 									aria-label="Close">
-									<span className="bigf" aria-hidden="true">&times;</span>
+									<span className="bigf" aria-hidden="true">
+										&times;
+									</span>
 								</button>
 							</div>
 							<div className="modal-body">
@@ -44,10 +53,11 @@ function Modal({ name }, ref) {
 											<input
 												type="text"
 												className="form-control"
-												id="title"
-												name="title"
+												id="etitle"
+												name="etitle"
+												value={note.etitle}
 												placeholder="Enter the title"
-												// onChange={handleChange}
+												onChange={handleChange}
 											/>
 										</div>
 										<div className="form-group">
@@ -58,9 +68,10 @@ function Modal({ name }, ref) {
 												type="text"
 												className="form-control"
 												id="description"
-												name="description"
+												name="edescription"
+												value={note.edescription}
 												placeholder="Add your description here"
-												// onChange={handleChange}
+												onChange={handleChange}
 											/>
 										</div>
 										<div className="form-group">
@@ -71,9 +82,10 @@ function Modal({ name }, ref) {
 												type="text"
 												className="form-control"
 												id="tag"
-												name="tag"
+												name="etag"
+												value={note.etag}
 												placeholder="Add your tag here"
-												// onChange={handleChange}
+												onChange={handleChange}
 											/>
 										</div>
 									</form>
@@ -84,10 +96,14 @@ function Modal({ name }, ref) {
 								<button
 									type="button"
 									className="btn btn-secondary"
-									data-dismiss="modal">
+									data-dismiss="modal"
+                                    ref={closeRef}>
 									Close
 								</button>
-								<button type="button" className="btn btn-primary mjg">
+								<button
+									type="button"
+									className="btn btn-primary mjg"
+									onClick={(e)=>{handleUpdate(e); closeR();}}>
 									Update Note
 								</button>
 							</div>

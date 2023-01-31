@@ -1,18 +1,18 @@
-import React,{useContext,useState} from "react";
+import React, { useContext, useState } from "react";
 import noteContext from "../context/note/noteContext";
 
 const Addnote = () => {
-    const context = useContext(noteContext)
-    const {addNote}=context;
-    const [note, setnote] = useState({ title: "", description: "", tag: "" });
-		const handleAdd = (e) => {
-			e.preventDefault();
-			addNote(note.title, note.description, note.tag);
-		};
-    const handleChange=(e)=>{
-        e.preventDefault();
-        setnote({...note,[e.target.name]:e.target.value})
-    }
+	const context = useContext(noteContext);
+	const { addNote } = context;
+	const [note, setnote] = useState({ title: "", description: "", tag: "" });
+	const handleAdd = (e) => {
+		e.preventDefault();
+		addNote(note.title, note.description, note.tag);
+	};
+	const handleChange = (e) => {
+		e.preventDefault();
+		setnote({ ...note, [e.target.name]: e.target.value });
+	};
 	return (
 		<div className="container my-3">
 			<h2>Add your Notes</h2>
@@ -60,7 +60,6 @@ const Addnote = () => {
 				<button className="btn btn-dark my-2" onClick={handleAdd}>
 					Add note
 				</button>
-				
 			</form>
 		</div>
 	);
