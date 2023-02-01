@@ -3,7 +3,7 @@ import noteContext from "../context/note/noteContext";
 
 const Addnote = () => {
 	const context = useContext(noteContext);
-	const { addNote } = context;
+	const {mode, addNote } = context;
 	const [note, setnote] = useState({ title: "", description: "", tag: "" });
 	const handleAdd = (e) => {
 		e.preventDefault();
@@ -30,15 +30,12 @@ const Addnote = () => {
 		iff(e,tagref);
 	}
 	const goSubmit=(e)=>{
-		iff(e,submitref);
+		if (e.key === "Enter") 
+			submitref.current.click();
 	}
-	// const submit=(e)=>{
-	// 	if(e.key=== 'Enter'){
-	// 		handleAdd(e)
-	// 	}
-	// }
 	return (
-		<div className="container my-3">
+		<div
+			className={`container my-3 text-${mode === "blue" ? "light" : "black"}`}>
 			<h2>Add your Notes</h2>
 			<form>
 				<div className="form-group my-3">
@@ -47,7 +44,9 @@ const Addnote = () => {
 					</label>
 					<input
 						type="text"
-						className="form-control"
+						className={`form-control bg-${mode} text-${
+							mode === "blue" ? "light" : "black"
+						}`}
 						id="title"
 						name="title"
 						placeholder="Enter the title"
@@ -60,9 +59,11 @@ const Addnote = () => {
 					<label className="my-1" htmlFor="description">
 						Description
 					</label>
-					<input
+					<textarea
 						type="text"
-						className="form-control"
+						className={`form-control bg-${mode} text-${
+							mode === "blue" ? "light" : "black"
+						}`}
 						id="description"
 						name="description"
 						placeholder="Add your description here"
@@ -77,7 +78,9 @@ const Addnote = () => {
 					</label>
 					<input
 						type="text"
-						className="form-control"
+						className={`form-control bg-${mode} text-${
+							mode === "blue" ? "light" : "black"
+						}`}
 						id="tag"
 						name="tag"
 						placeholder="Add your tag here"
@@ -87,7 +90,13 @@ const Addnote = () => {
 					/>
 				</div>
 
-				<button className=" bg-dark text-light my-2" onClick={(e)=>{handleAdd(e)}}  ref={submitref}>
+				<button
+					disabled={note.title.length < 5 || note.description.length < 5}
+					className="add-note bg-dark text-light my-2"
+					onClick={(e) => {
+						handleAdd(e);
+					}}
+					ref={submitref}>
 					Add note
 				</button>
 			</form>

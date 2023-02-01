@@ -32,7 +32,7 @@ const Notes = () => {
 		<>
 			<Addnote />
 			<Modal note={note} ref={modalRef} handleChange={handleChange} handleUpdate={handleUpdate}/>
-			<div className="container">
+			<div className="container text-light">
 				<h2>Notes</h2>
 				<h4>{notes.length===0? "No notes to display":""}</h4>
 				<div className="row">

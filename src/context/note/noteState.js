@@ -5,6 +5,17 @@ const NoteState = (props) => {
 	const host = "http://localhost:5000";
 	const notesinitial = [];
 	const [notes, setNotes] = useState(notesinitial);
+	const [mode, setmode] = useState("blue")
+	const changeMode=()=>{
+		if(mode==="blue"){
+			setmode("light")
+			document.body.style.backgroundColor = "white";
+		}
+		else{
+			setmode("blue")
+			document.body.style.backgroundColor = "#124671";
+		}	
+	}
 
 	// Fetch note
 	const getNotes = async () => {
@@ -33,10 +44,9 @@ const NoteState = (props) => {
 			body: JSON.stringify({ title, description, tag }),
 		});
 		const json = await response.json();
-		console.log(json) 
-		// add a note on client side
+		if(!json.error){
 		setNotes(notes.concat(json));
-		console.log(notes);
+		console.log('Note added');}
 	};
 	// Delete note
 	const deleteNote = async (id) => {
@@ -49,6 +59,7 @@ const NoteState = (props) => {
 					"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNmM5ZjY0ZDk5ZDhjZDdmMDA4ZmZhIn0sImlhdCI6MTY3NTAyNDg4N30.AhkyeBlRRlOCUKga1CrzLqGJrXyUCMlfFzLoSF9_gVM",
 			},
 		});
+		// eslint-disable-next-line
 		const json = await response.json();
 		console.log(response ? "Note deleted" : "");
 		// delete a note on client side
@@ -69,14 +80,15 @@ const NoteState = (props) => {
 			},
 			body: JSON.stringify({ title, description, tag }),
 		});
+		// eslint-disable-next-line
 		const json = await response.json();
-		console.log(response? "Note updated":"")
+		console.log(response ? "Note updated" : "");
 		// logic to edit a note for client side
 		const editednotes = notes.map((note) => {
-			if (note._id === id){
-					note.title= title;
-					note.description= description;
-					note.tag= tag;
+			if (note._id === id) {
+				note.title = title;
+				note.description = description;
+				note.tag = tag;
 			}
 			return note;
 		});
@@ -86,7 +98,7 @@ const NoteState = (props) => {
 
 	return (
 		<NoteContext.Provider
-			value={{ notes, addNote, deleteNote, updateNote, getNotes  }}>
+			value={{ notes, addNote, deleteNote, updateNote, getNotes, mode,changeMode  }}>
 			{props.children}
 		</NoteContext.Provider>
 	);
