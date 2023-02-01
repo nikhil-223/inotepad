@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import noteContext from "../context/note/noteContext";
 
 const Addnote = () => {
@@ -13,6 +13,30 @@ const Addnote = () => {
 		e.preventDefault();
 		setnote({ ...note, [e.target.name]: e.target.value });
 	};
+
+	// references
+	const titleref= useRef(null)
+	const descref= useRef(null)
+	const tagref= useRef(null)
+	const submitref= useRef(null)
+	const iff=(e,ref)=>{
+		if(e.key=== 'Enter')
+		{ref.current.focus();}
+	}
+	const goDesc=(e)=>{
+		iff(e,descref);
+	}
+	const goTag=(e)=>{
+		iff(e,tagref);
+	}
+	const goSubmit=(e)=>{
+		iff(e,submitref);
+	}
+	// const submit=(e)=>{
+	// 	if(e.key=== 'Enter'){
+	// 		handleAdd(e)
+	// 	}
+	// }
 	return (
 		<div className="container my-3">
 			<h2>Add your Notes</h2>
@@ -28,6 +52,8 @@ const Addnote = () => {
 						name="title"
 						placeholder="Enter the title"
 						onChange={handleChange}
+						ref={titleref}
+						onKeyDown={goDesc}
 					/>
 				</div>
 				<div className="form-group">
@@ -41,6 +67,8 @@ const Addnote = () => {
 						name="description"
 						placeholder="Add your description here"
 						onChange={handleChange}
+						ref={descref}
+						onKeyDown={goTag}
 					/>
 				</div>
 				<div className="form-group">
@@ -54,10 +82,12 @@ const Addnote = () => {
 						name="tag"
 						placeholder="Add your tag here"
 						onChange={handleChange}
+						ref={tagref}
+						onKeyDown={goSubmit}
 					/>
 				</div>
 
-				<button className="btn btn-dark my-2" onClick={handleAdd}>
+				<button className=" bg-dark text-light my-2" onClick={(e)=>{handleAdd(e)}}  ref={submitref}>
 					Add note
 				</button>
 			</form>
