@@ -10,9 +10,11 @@ const NoteState = (props) => {
 		if(mode==="blue"){
 			setmode("light")
 			document.body.style.backgroundColor = "white";
+			document.body.querySelector(".modal-content").style.backgroundColor="white"
 		}
 		else{
 			setmode("blue")
+			document.body.querySelector(".modal-content").style.backgroundColor ="#124671";
 			document.body.style.backgroundColor = "#124671";
 		}	
 	}

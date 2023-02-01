@@ -1,8 +1,10 @@
-import React,{useRef} from "react";
+import React,{useRef,useContext} from "react";
+import noteContext from "../context/note/noteContext";
 
 function Modal(props, ref) {
     const {note, handleChange,handleUpdate}=props;
-    
+    const context = useContext(noteContext)
+	const {mode}=context;
     const closeRef = useRef(null);
     const closeR=()=>{
         closeRef.current.click();
@@ -28,7 +30,10 @@ function Modal(props, ref) {
 					aria-labelledby="exampleModalLabel"
 					aria-hidden="true">
 					<div id="modalcenter" className="modal-dialog" role="document">
-						<div className="modal-content">
+						<div
+							className={`modal-content  text-${
+								mode === "blue" ? "light" : "black"
+							}`}>
 							<div className="modal-header">
 								<h5 className="modal-title mx-3" id="exampleModalLabel">
 									Edit the Note
@@ -52,7 +57,9 @@ function Modal(props, ref) {
 											<label htmlFor="exampleInputEmail1">Title</label>
 											<input
 												type="text"
-												className="form-control"
+												className={`form-control bg-${mode} text-${
+													mode === "blue" ? "light" : "black"
+												}`}
 												id="etitle"
 												name="etitle"
 												value={note.etitle}
@@ -66,7 +73,9 @@ function Modal(props, ref) {
 											</label>
 											<input
 												type="text"
-												className="form-control"
+												className={`form-control bg-${mode} text-${
+													mode === "blue" ? "light" : "black"
+												}`}
 												id="description"
 												name="edescription"
 												value={note.edescription}
@@ -80,7 +89,9 @@ function Modal(props, ref) {
 											</label>
 											<input
 												type="text"
-												className="form-control"
+												className={`form-control bg-${mode} text-${
+													mode === "blue" ? "light" : "black"
+												}`}
 												id="tag"
 												name="etag"
 												value={note.etag}
@@ -97,13 +108,16 @@ function Modal(props, ref) {
 									type="button"
 									className="btn btn-secondary"
 									data-dismiss="modal"
-                                    ref={closeRef}>
+									ref={closeRef}>
 									Close
 								</button>
 								<button
 									type="button"
 									className="btn btn-primary mjg"
-									onClick={(e)=>{handleUpdate(e); closeR();}}>
+									onClick={(e) => {
+										handleUpdate(e);
+										closeR();
+									}}>
 									Update Note
 								</button>
 							</div>

@@ -120,3 +120,6 @@ textarea{
   height: 15vh;
   max-height: 25vh;
 }
+.modal-content{
+  background-color: "#124671" !important;
+}
