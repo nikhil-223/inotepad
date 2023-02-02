@@ -1,15 +1,29 @@
-import React from "react";
-
-import Notes from "./Notes";
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import noteContext from "../context/note/noteContext";
+import Addnote from "./Addnote";
+import Mynotes from "./Mynotes";
 
 const Home = () => {
-  
-  return (
-    <>
-    
-    <Notes/>
-    </>
-  )
-}
+	const context = useContext(noteContext);
+	const { getNotes } = context;
+	let history = useNavigate();
 
-export default Home
+	useEffect(() => {
+		if (localStorage.getItem("token")) {
+			getNotes();
+		} else {
+			history("/login");
+		}
+		// eslint-disable-next-line
+	}, []);
+
+	return (
+		<>
+			<Addnote />
+			<Mynotes />
+		</>
+	);
+};
+
+export default Home;

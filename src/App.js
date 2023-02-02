@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Alert from "./components/Alert"
 import React from "react";
+import Mynotes from "./components/Mynotes";
 
 
 
@@ -22,6 +23,7 @@ function App() {
 					<Route path="/" element={<Login />} />
 					<Route path="/home" element={<Home />} />
 					<Route path="/about" element={<About />} />
+					<Route path="/mynotes" element={<Mynotes />} />
 					<Route path="/signup" element={<Signup />} />
 					<Route path="/login" element={<Login />} />
 				</Routes>

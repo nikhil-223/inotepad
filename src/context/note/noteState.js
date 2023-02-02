@@ -9,6 +9,12 @@ const NoteState = (props) => {
 	const [notes, setNotes] = useState(notesinitial);
 	const [alert, setalert] = useState({ type: "success", message: "" });
 	const [mode, setmode] = useState("blue");
+	const [note, setnote] = useState({
+		id: "",
+		etitle: "",
+		edescription: "",
+		etag: "",
+	});
 	const changeMode = () => {
 		if (mode === "blue") {
 			setmode("light");
@@ -199,7 +205,9 @@ const NoteState = (props) => {
 				SignUp,
 				alert,
 				GetUsers,
-				showalert
+				showalert,
+				note,
+				setnote
 			}}>
 			{props.children}
 		</NoteContext.Provider>

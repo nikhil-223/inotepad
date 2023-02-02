@@ -54,6 +54,15 @@ const Navbar = () => {
 								About
 							</Link>
 						</li>
+						<li className="nav-item">
+							<Link
+								className={` nav-link ${
+									location.pathname === "/about" ? "active" : ""
+								} text-${mode === "blue" ? "light" : "black"}`}
+								to="/mynotes">
+								My Notes
+							</Link>
+						</li>
 					</ul>
 					<form className="d-flex align-items-start" role="search">
 						<div
