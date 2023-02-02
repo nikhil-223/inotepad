@@ -3,11 +3,12 @@ import noteContext from "../context/note/noteContext";
 import Noteitem from "./Noteitem";
 import Addnote from "./Addnote";
 import Modal from "./Modal";
+import { useNavigate } from "react-router-dom";
 
 const Notes = () => {
 	const context = useContext(noteContext);
 	const { notes, getNotes, updateNote } = context;
-
+	let history= useNavigate();
 	const [note, setnote] = useState({ id:"", etitle: "", edescription: "", etag: "" });
 
 	const handleUpdate=(e) => {
@@ -19,7 +20,13 @@ const Notes = () => {
 		setnote({ ...note, [e.target.name]: e.target.value });
 	};
 	useEffect(() => {
-		getNotes();
+		console.log(localStorage.getItem('token'));
+		if(localStorage.getItem("token"))
+		
+		{getNotes(); }
+		else{
+			history("/login");
+		}
 		// eslint-disable-next-line
 	}, []);
 

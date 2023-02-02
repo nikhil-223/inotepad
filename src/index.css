@@ -46,7 +46,6 @@ i{
 .btnc{
     padding: 0.3rem 0.5rem;
     border-radius: 0.3rem;
-    margin-top: 1.2rem !important;
     background-color: rgb(57, 109, 155) !important;
     border: none;
     transition: all 0.3s;

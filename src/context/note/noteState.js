@@ -25,7 +25,19 @@ const NoteState = (props) => {
 			document.querySelector(".alertbox").style.visibility = "hidden";
 		}, 2000);
 	};
-
+	const errorHandle=(valid,message)=>{
+		if (valid)
+			showalert({
+				type: "success",
+				message: message,
+			});
+		else {
+			showalert({
+				type: "danger",
+				message: "Error: some error occured",
+			});
+		}
+	}
 	// Fetch note
 	const getNotes = async () => {
 		// API Call
@@ -33,8 +45,8 @@ const NoteState = (props) => {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
-				"auth-token":
-					"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNmM5ZjY0ZDk5ZDhjZDdmMDA4ZmZhIn0sImlhdCI6MTY3NTAyNDg4N30.AhkyeBlRRlOCUKga1CrzLqGJrXyUCMlfFzLoSF9_gVM",
+				"auth-token": localStorage.getItem("token")
+					
 			},
 		});
 		const json = await response.json();
@@ -47,8 +59,8 @@ const NoteState = (props) => {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
-				"auth-token":
-					"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNmM5ZjY0ZDk5ZDhjZDdmMDA4ZmZhIn0sImlhdCI6MTY3NTAyNDg4N30.AhkyeBlRRlOCUKga1CrzLqGJrXyUCMlfFzLoSF9_gVM",
+				"auth-token": localStorage.getItem("token")
+					
 			},
 			body: JSON.stringify({ title, description, tag }),
 		});
@@ -57,6 +69,8 @@ const NoteState = (props) => {
 			setNotes(notes.concat(json));
 			console.log("Note added");
 		}
+		errorHandle(json._id, "Success: Note Added");
+		
 	};
 	// Delete note
 	const deleteNote = async (id) => {
@@ -65,18 +79,18 @@ const NoteState = (props) => {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json",
-				"auth-token":
-					"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNmM5ZjY0ZDk5ZDhjZDdmMDA4ZmZhIn0sImlhdCI6MTY3NTAyNDg4N30.AhkyeBlRRlOCUKga1CrzLqGJrXyUCMlfFzLoSF9_gVM",
+				"auth-token": localStorage.getItem("token")
+					
 			},
 		});
 		// eslint-disable-next-line
 		const json = await response.json();
-		console.log(response ? "Note deleted" : "");
 		// delete a note on client side
 		const newnote = notes.filter((note) => {
 			return note._id !== id;
 		});
 		setNotes(newnote);
+		errorHandle(json._id, "Success: Note Deleted");
 	};
 	// Update notes
 	const updateNote = async (id, title, description, tag) => {
@@ -85,14 +99,12 @@ const NoteState = (props) => {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
-				"auth-token":
-					"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkNmM5ZjY0ZDk5ZDhjZDdmMDA4ZmZhIn0sImlhdCI6MTY3NTAyNDg4N30.AhkyeBlRRlOCUKga1CrzLqGJrXyUCMlfFzLoSF9_gVM",
+				"auth-token": localStorage.getItem("token")		
 			},
 			body: JSON.stringify({ title, description, tag }),
 		});
 		// eslint-disable-next-line
 		const json = await response.json();
-		console.log(response ? "Note updated" : "");
 		// logic to edit a note for client side
 		const editednotes = notes.map((note) => {
 			if (note._id === id) {
@@ -103,6 +115,7 @@ const NoteState = (props) => {
 			return note;
 		});
 		setNotes(editednotes);
+		errorHandle(json._id, "Success: Note Updated");
 	};
 
 	// users login and signup
@@ -118,11 +131,9 @@ const NoteState = (props) => {
 		const json = await response.json();
 		console.log(json.authtoken);
 		if (json.authtoken)
-		{
-			localStorage.setItem("token", json.authtoken);
-			history("/login");
+		{	history("/login");
 			document.querySelector(".signup").style.display="none";
-			showalert({ type: "success", message: "Signed in" });
+			showalert({ type: "success", message: "Success: Signed in" });
 		} 
 		else showalert({ type: "danger", message: "User already exist" });
 	};
@@ -142,7 +153,7 @@ const NoteState = (props) => {
 			history("/home");
 			document.querySelector(".login").style.display="none";
 			document.querySelector(".signup").style.display="none";
-			showalert({ type: "success", message: "Logged in" });}
+			showalert({ type: "success", message: "Success: Logged in" });}
 		else
 			showalert({
 				type: "danger",
@@ -156,8 +167,8 @@ const NoteState = (props) => {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
-				"auth-token":
-					"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNkYmI5NzM1ZGE0MjM1ZGY5NjhhODk3In0sImlhdCI6MTY3NTM0NDMxOH0.g1sV-RXfrXCz2Hyu0Iqx8Fdl5ojb6cG5zvZsPIO1Atc",
+				"auth-token": localStorage.getItem("token")
+					
 			},
 		});
 		const json = await response.json();

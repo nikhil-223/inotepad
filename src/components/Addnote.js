@@ -92,6 +92,7 @@ const Addnote = () => {
 
 				<button
 					disabled={note.title.length < 5 || note.description.length < 5}
+					style={{marginTop:"2rem"}}
 					className="btnc bg-dark text-light my-2"
 					onClick={(e) => {
 						handleAdd(e);

@@ -83,7 +83,7 @@ const Signup = () => {
 							className={`form-control bg-${mode} text-${
 								mode === "blue" ? "light" : "black"
 							}`}
-							id="inputPassword"
+							id="confirmPassword"
 							name="confirmpass"
 							onChange={handleChange}
 						/>

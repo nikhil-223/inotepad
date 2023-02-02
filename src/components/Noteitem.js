@@ -21,7 +21,7 @@ const Noteitem = (props) => {
 				}`}>
 				<div className="card-body">
 					<div className="d-flex justify-content-between align-items-start">
-						<h5 style={{ fontWeight: "600" }} className="card-title mx-0">
+						<h5 style={{ fontWeight: "600" ,width:"60%"}} className="card-title mx-0">
 							{capitalise(note.title)}
 						</h5>
 						<div>
