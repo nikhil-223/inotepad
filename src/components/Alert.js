@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from "react";
+import noteContext from "../context/note/noteContext";
 
 const Alert = () => {
-  return (
-		<div style={{visibility:"hidden"}} className="alert alert-success" role="alert">
-			A simple success alert—check it out!
+	const context = useContext(noteContext);
+	const { alert } = context;
+	return (
+		<div style={{ visibility: "hidden" , height:"3.5rem" }} className="alertbox">
+			<div className={`alert alert-${alert.type}`} role="alert">
+				{alert.message}
+			</div>
 		</div>
 	);
-}
+};
 
-export default Alert
+export default Alert;

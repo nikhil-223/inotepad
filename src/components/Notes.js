@@ -6,7 +6,7 @@ import Modal from "./Modal";
 
 const Notes = () => {
 	const context = useContext(noteContext);
-	const { notes, getNotes, updateNote} = context;
+	const { notes, getNotes, updateNote } = context;
 
 	const [note, setnote] = useState({ id:"", etitle: "", edescription: "", etag: "" });
 

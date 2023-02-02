@@ -16,7 +16,7 @@ i{
     width: 2rem;
     height: 2rem;
     border-radius: 0.5rem;
-    border: 0.1rem solid #ae8e8e;
+    border: 0.1px solid black;
 }
 .mjg{
   position: relative;
@@ -43,7 +43,7 @@ i{
   border-radius: 0.3rem;
   padding: 0.1rem 0.3rem;
 }
-.add-note{
+.btnc{
     padding: 0.3rem 0.5rem;
     border-radius: 0.3rem;
     margin-top: 1.2rem !important;
@@ -52,8 +52,8 @@ i{
     transition: all 0.3s;
     cursor: pointer;
 }
-.add-note:hover{
-  background-color: #124671 !important;
+.btnc:hover{
+  background-color: #0f3251 !important;
   color: white !important;
 }
 .add-note:disabled{
@@ -120,6 +120,7 @@ textarea{
   height: 15vh;
   max-height: 25vh;
 }
-.modal-content{
-  background-color: "#124671" !important;
+
+.bg-skyb{
+  background-color: #124671;
 }

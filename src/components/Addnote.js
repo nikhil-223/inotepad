@@ -92,7 +92,7 @@ const Addnote = () => {
 
 				<button
 					disabled={note.title.length < 5 || note.description.length < 5}
-					className="add-note bg-dark text-light my-2"
+					className="btnc bg-dark text-light my-2"
 					onClick={(e) => {
 						handleAdd(e);
 					}}

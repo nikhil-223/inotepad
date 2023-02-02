@@ -10,9 +10,11 @@ const Navbar = () => {
 	return (
 		<nav className={`navbar navbar-expand-lg bg-${mode}`} data-bs-theme="dark">
 			<div className="container-fluid">
-				<a className= {`navbar-brand  text-${
-							mode === "blue" ? "light" : "black"
-						}`} href="/">
+				<a
+					className={`navbar-brand  text-${
+						mode === "blue" ? "light" : "black"
+					}`}
+					href="/">
 					INoteBook
 				</a>
 				<button
@@ -47,10 +49,24 @@ const Navbar = () => {
 							</Link>
 						</li>
 					</ul>
-					<form className="d-flex" role="search">
+					<form className="d-flex align-items-start" role="search">
 						<div
 							className={`pallete bg-${mode === "blue" ? "light" : "blue"}`}
 							onClick={changeMode}></div>
+						<Link
+							style={{ height: "2rem", paddingTop: "0.2rem" }}
+							className="login btn btn-primary mx-2"
+							to="/login"
+							role="button">
+							Log In
+						</Link>
+						<Link
+							style={{ height: "2rem", paddingTop: "0.2rem" }}
+							className="signup btn btn-primary mx-2"
+							to="/signup"
+							role="button">
+							Sign Up
+						</Link>
 					</form>
 				</div>
 			</div>

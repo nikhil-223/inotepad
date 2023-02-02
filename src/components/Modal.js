@@ -31,9 +31,9 @@ function Modal(props, ref) {
 					aria-hidden="true">
 					<div id="modalcenter" className="modal-dialog" role="document">
 						<div
-							className={`modal-content  text-${
-								mode === "blue" ? "light" : "black"
-							}`}>
+							className={`modal-content bg-${
+								mode === "blue" ? "skyb" : "light"
+							}  text-${mode === "blue" ? "light" : "black"}`}>
 							<div className="modal-header">
 								<h5 className="modal-title mx-3" id="exampleModalLabel">
 									Edit the Note
@@ -41,7 +41,9 @@ function Modal(props, ref) {
 								<button
 									type="button"
 									id="crossb"
-									className="close"
+									className={`close bg-${mode} text-${
+										mode === "blue" ? "light" : "black"
+									}`}
 									data-dismiss="modal"
 									aria-label="Close">
 									<span className="bigf" aria-hidden="true">
