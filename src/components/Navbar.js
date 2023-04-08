@@ -15,13 +15,13 @@ const Navbar = () => {
 	return (
 		<nav className={`navbar navbar-expand-lg bg-${mode}`} data-bs-theme="dark">
 			<div className="container-fluid">
-				<a
+				<div
 					className={`navbar-brand  text-${
 						mode === "blue" ? "light" : "black"
 					}`}
-					href="/">
+					>
 					INoteBook
-				</a>
+				</div>
 				<button
 					className="navbar-toggler"
 					type="button"
