@@ -13,7 +13,7 @@ const Navbar = () => {
 		history("/login")
 	 }
 	return (
-		<nav className={`navbar navbar-expand-lg bg-${mode}`} data-bs-theme="dark">
+		<nav className={`navbar navbar-expand-lg mynavbar bg-${mode}`} data-bs-theme="dark" >
 			<div className="container-fluid">
 				<div
 					className={`navbar-brand  text-${

@@ -19,10 +19,10 @@ const Home = () => {
 	}, []);
 
 	return (
-		<>
+		  <div className="home-inner">
 			<Addnote />
 			<Mynotes />
-		</>
+			</div>
 	);
 };
 

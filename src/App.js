@@ -18,6 +18,7 @@ function App() {
 		<BrowserRouter>
 			<NoteState>
 				<Navbar />
+				<div className="page-image">
 				<Alert/>
 				<Routes>
 					<Route path="/" element={<Login />} />
@@ -27,6 +28,7 @@ function App() {
 					<Route path="/signup" element={<Signup />} />
 					<Route path="/login" element={<Login />} />
 				</Routes>
+				</div>
 			</NoteState>
 		</BrowserRouter>
 	);

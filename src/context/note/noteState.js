@@ -73,9 +73,9 @@ const NoteState = (props) => {
 		const json = await response.json();
 		if (!json.error) {
 			setNotes(notes.concat(json));
-			console.log("Note added");
 		}
 		errorHandle(json._id, "Success: Note Added");
+		showalert({ type: "success", message: "Note added" })
 		
 	};
 	// Delete note
@@ -96,7 +96,8 @@ const NoteState = (props) => {
 			return note._id !== id;
 		});
 		setNotes(newnote);
-		errorHandle(json._id, "Success: Note Deleted");
+		// errorHandle(json._id, "Success: Note Deleted");
+		showalert({ type: "success", message: "Note deleted" })
 	};
 	// Update notes
 	const updateNote = async (id, title, description, tag) => {
@@ -122,6 +123,7 @@ const NoteState = (props) => {
 		});
 		setNotes(editednotes);
 		errorHandle(json._id, "Success: Note Updated");
+		showalert({ type: "success", message: "Note updated" })
 	};
 
 	// users login and signup

@@ -12,6 +12,9 @@ code {
 i{
   cursor: pointer;
 }
+a{
+  text-decoration: none;
+}
 #crossb{
     width: 2rem;
     height: 2rem;
@@ -122,4 +125,63 @@ textarea{
 
 .bg-skyb{
   background-color: #124671;
+}
+
+.addNote{
+  width: 30rem;
+}
+.page{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.page-container{
+  padding: 1.5rem;
+  width: 35rem;
+  height: 100%;
+  background-color: #0c2941;
+}
+.page-image{
+  width: 100%;
+  height: calc(100vh - 3rem) ;
+  background: url('./images/anime1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.alertb{
+  position: absolute;
+  right: 0;
+  margin: 1rem;
+  width: auto;
+}
+.addNote{
+  width: 40%;
+  min-width: 30rem;
+  height: 100%;
+  padding: 3rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.addNote-box{
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #0c2941;
+}
+.home-inner{
+  display: flex;
+}
+.mynavbar{
+  box-shadow: 0.1rem 0.1rem 0.5rem -0.1rem rgb(0, 0, 0);
+}
+.myNotes{
+  padding: 3rem;
+  width: 60%;
+}
+
+.login-btns{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -45,7 +45,7 @@ const Mynotes = () => {
 				handleChange={handleChange}
 				handleUpdate={handleUpdate}
 			/>
-			<div className="container text-light">
+			<div className="myNotes text-light">
 				<h2>Notes</h2>
 				<h4>{notes.length === 0 ? "No notes to display" : ""}</h4>
 				<div className="row">

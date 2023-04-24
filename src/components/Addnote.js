@@ -34,73 +34,74 @@ const Addnote = () => {
 			submitref.current.click();
 	}
 	return (
-		<div
-			className={`container my-3 text-${mode === "blue" ? "light" : "black"}`}>
-			<h2>Add your Notes</h2>
-			<form>
-				<div className="form-group my-3">
-					<label className="my-1" htmlFor="exampleInputEmail1">
-						Title
-					</label>
-					<input
-						type="text"
-						className={`form-control bg-${mode} text-${
-							mode === "blue" ? "light" : "black"
-						}`}
-						id="title"
-						name="title"
-						placeholder="Enter the title"
-						onChange={handleChange}
-						ref={titleref}
-						onKeyDown={goDesc}
-					/>
-				</div>
-				<div className="form-group">
-					<label className="my-1" htmlFor="description">
-						Description
-					</label>
-					<textarea
-						type="text"
-						className={`form-control bg-${mode} text-${
-							mode === "blue" ? "light" : "black"
-						}`}
-						id="description"
-						name="description"
-						placeholder="Add your description here"
-						onChange={handleChange}
-						ref={descref}
-						onKeyDown={goTag}
-					/>
-				</div>
-				<div className="form-group">
-					<label className="my-1" htmlFor="tag">
-						Tag
-					</label>
-					<input
-						type="text"
-						className={`form-control bg-${mode} text-${
-							mode === "blue" ? "light" : "black"
-						}`}
-						id="tag"
-						name="tag"
-						placeholder="Add your tag here"
-						onChange={handleChange}
-						ref={tagref}
-						onKeyDown={goSubmit}
-					/>
-				</div>
+		<div className={` addNote text-${mode === "blue" ? "light" : "black"}`}>
+			<div className="addNote-box">
+				<h2>Add your Notes</h2>
+				<form>
+					<div className="form-group my-3">
+						<label className="my-1" htmlFor="exampleInputEmail1">
+							Title
+						</label>
+						<input
+							type="text"
+							className={`form-control bg-${mode} text-${
+								mode === "blue" ? "light" : "black"
+							}`}
+							id="title"
+							name="title"
+							placeholder="Enter the title"
+							onChange={handleChange}
+							ref={titleref}
+							onKeyDown={goDesc}
+						/>
+					</div>
+					<div className="form-group">
+						<label className="my-1" htmlFor="description">
+							Description
+						</label>
+						<textarea
+							type="text"
+							className={`form-control bg-${mode} text-${
+								mode === "blue" ? "light" : "black"
+							}`}
+							id="description"
+							name="description"
+							placeholder="Add your description here"
+							onChange={handleChange}
+							ref={descref}
+							onKeyDown={goTag}
+						/>
+					</div>
+					<div className="form-group">
+						<label className="my-1" htmlFor="tag">
+							Tag
+						</label>
+						<input
+							type="text"
+							className={`form-control bg-${mode} text-${
+								mode === "blue" ? "light" : "black"
+							}`}
+							id="tag"
+							name="tag"
+							placeholder="Add your tag here"
+							onChange={handleChange}
+							ref={tagref}
+							onKeyDown={goSubmit}
+						/>
+					</div>
 
-				<button
-					disabled={note.title.length < 5 || note.description.length < 5}
-					style={{marginTop:"2rem"}}
-					className="btnc bg-dark text-light my-2"
-					onClick={(e) => {
-						handleAdd(e);
-					}}
-					ref={submitref}>
-					Add note
-				</button>
-			</form>
+					<button
+						disabled={note.title.length < 5 || note.description.length < 5}
+						style={{ marginTop: "2rem" }}
+						className="btnc bg-dark text-light my-2"
+						onClick={(e) => {
+							handleAdd(e);
+						}}
+						ref={submitref}>
+						Add note
+					</button>
+				</form>
+			</div>
 		</div>
 	);
 };

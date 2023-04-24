@@ -12,7 +12,7 @@ function Modal(props, ref) {
 
 	return (
 		<>
-			<div className="container">
+			<div className="container " style={{display:'none'}}>
 				<button
 					type="button"
 					className="btn btn-primary"
