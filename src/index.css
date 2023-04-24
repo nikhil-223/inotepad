@@ -144,7 +144,7 @@ textarea{
 }
 .page-image{
   width: 100%;
-  height: calc(100vh - 3rem) ;
+  height: calc(100vh - 4rem) ;
   background: url('./images/anime1.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -173,6 +173,7 @@ textarea{
   display: flex;
 }
 .mynavbar{
+  height: 4rem;
   box-shadow: 0.1rem 0.1rem 0.5rem -0.1rem rgb(0, 0, 0);
 }
 .myNotes{
