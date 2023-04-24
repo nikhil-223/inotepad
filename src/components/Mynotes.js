@@ -46,9 +46,9 @@ const Mynotes = () => {
 				handleUpdate={handleUpdate}
 			/>
 			<div className="myNotes text-light">
-				<h2>Notes</h2>
+				<div className="myNotes-head"><h2>Notes</h2></div>
 				<h4>{notes.length === 0 ? "No notes to display" : ""}</h4>
-				<div className="row">
+				<div className="d-flex justify-start gap-2">
 					{notes.map((note) => {
 						return (
 							<Noteitem key={note._id} note={note} showModel={showModel} />

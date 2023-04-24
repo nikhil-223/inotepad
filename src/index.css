@@ -145,7 +145,7 @@ textarea{
 .page-image{
   width: 100%;
   height: calc(100vh - 4rem) ;
-  background: url('./images/anime1.png');
+  background: url('./images/anime2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -185,4 +185,13 @@ textarea{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.note-item{
+  width: 20rem;
+}
+.myNotes-head{
+  background-color: #0c2941;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }

@@ -14,7 +14,7 @@ const Noteitem = (props) => {
 		return cap;
 	}
 	return (
-		<div className="col-md-3 my-3">
+		<div className="col-md-3 my-3 note-item">
 			<div
 				className={`card bg-${mode} text-${
 					mode === "blue" ? "light" : "black"
