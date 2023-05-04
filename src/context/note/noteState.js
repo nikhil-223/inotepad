@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const NoteState = (props) => {
-	const host = "http://localhost:5000";
+	const host = "https://inotepad-backend.onrender.com";
 	let history= useNavigate();
 	const notesinitial = [];
 	const [notes, setNotes] = useState(notesinitial);
