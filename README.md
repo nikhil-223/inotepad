@@ -1,6 +1,7 @@
 
 
-# Note-Making App Readme File
+# Noted app
+### A Note making app
 
 This is a note-making app that allows users to sign up, login, and create personal notes. It is built using Node.js and Express.js and utilizes MongoDB to save notes on the server. Users can create notes in real-time and access them from any device using their login credentials.
 
