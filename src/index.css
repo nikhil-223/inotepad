@@ -1,197 +1,245 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Pacifico&family=Poppins:wght@200&family=Roboto+Condensed&family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Pacifico&family=Poppins:wght@200&family=Roboto+Condensed&family=Roboto:wght@300&display=swap");
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #124671;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: #124671;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
 }
-i{
-  cursor: pointer;
+i {
+	cursor: pointer;
 }
-a{
-  text-decoration: none;
+a {
+	text-decoration: none;
 }
-#crossb{
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.5rem;
-    border: 0.1px solid black;
+#crossb {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 0.5rem;
+	border: 0.1px solid black;
 }
-.mjg{
-  position: relative;
-  margin-right: 1rem;
+.mjg {
+	position: relative;
+	margin-right: 1rem;
 }
-.bigf{
-  position: relative;
-  font-size: 1.8rem;
-  top: -0.5rem;
+.bigf {
+	position: relative;
+	font-size: 1.8rem;
+	top: -0.5rem;
 }
-#modalcenter{
-  top: 50%;
-  transform: translate(0,-50%);
+#modalcenter {
+	top: 50%;
+	transform: translate(0, -50%);
 }
-::-webkit-scrollbar{
-  display: none;
+::-webkit-scrollbar {
+	display: none;
 }
-.tagname{
-  position: absolute;
-  bottom: 0.5rem;
-  right: 1rem;
-  font-size: 0.8rem;
-  background-color: #2f81b7;
-  border-radius: 0.3rem;
-  padding: 0.1rem 0.3rem;
+.tagname {
+	position: absolute;
+	bottom: 0.5rem;
+	right: 1rem;
+	font-size: 0.8rem;
+	background-color: #2f81b7;
+	border-radius: 0.3rem;
+	padding: 0.1rem 0.3rem;
 }
-.btnc{
-    padding: 0.3rem 0.5rem;
-    border-radius: 0.3rem;
-    background-color: rgb(57, 109, 155) !important;
-    border: none;
-    transition: all 0.3s;
-    cursor: pointer;
+.btnc {
+	padding: 0.3rem 0.5rem;
+	border-radius: 0.3rem;
+	background-color: rgb(57, 109, 155) !important;
+	border: none;
+	transition: all 0.3s;
+	cursor: pointer;
 }
-.btnc:hover{
-  background-color: #0f3251 !important;
-  color: white !important;
+.btnc:hover {
+	background-color: #0f3251 !important;
+	color: white !important;
 }
-.add-note:disabled{
-  background-color: #2f81b7;
+.add-note:disabled {
+	background-color: #2f81b7;
+}
+.bg-blue {
+	background-color: #0c2941;
+}
+.bars {
+	border: none;
+}
+.bars:focus {
+	border: none;
+}
+.bars i {
+	transform: scale(1.3);
+}
+.card i {
+	color: #7cadd6;
+	opacity: 0.8;
+	transition: all 0.2s;
+	transform: scale(1.2);
+}
+.card i:nth-child(1) {
+	padding-right: 0.3rem;
+}
+.card i:hover {
+	opacity: 1;
+	transform: scale(1.3);
+}
+.card {
+	transition: all 0.2s;
+	box-shadow: 0.2rem 0.2rem 0.5rem -0.2rem grey;
+}
+.card:hover {
+	transform: scale(1.01);
+	box-shadow: 0.2rem 0.2rem 0.5rem -0.1rem grey;
+}
+.form-control::placeholder {
+	color: grey;
+}
+.form-control {
+	border: none;
+	color: rgb(218, 244, 240);
+	box-shadow: inset 0rem 0rem 0.3rem -0.1rem rgb(13, 8, 8);
+}
+.form-control:focus {
+	background-color: #143a59;
+	box-shadow: inset 0rem 0rem 0.4rem -0.1rem rgb(13, 8, 8);
+	border: none;
+	color: rgb(218, 244, 240);
+}
+.pallete {
+	position: relative;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 0.2rem;
+	right: 1vw;
+}
+textarea {
+	height: 15vh;
+	max-height: 25vh;
+}
 
+.bg-skyb {
+	background-color: #124671;
 }
-.bg-blue{
-  background-color: #0c2941;
+.navbar-links{
+  align-items: center !important;
+  justify-content: center !important;
 }
-.bars{
-  border: none;
+
+.addNote {
+	width: 30rem;
 }
-.bars:focus{
-  border: none;
+.page {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-end;
 }
-.bars i{
-  transform: scale(1.3);
+.page-container {
+	padding: 1.5rem;
+	width: 35rem;
+	height: 100%;
+	background-color: #0c2941;
 }
-.card i{
-  color: #7cadd6;
-  opacity: 0.8;
-  transition: all 0.2s;
-  transform: scale(1.2);
+.page-image {
+	width: 100%;
+	height: calc(100vh - 4rem);
+	background: url("./images/anime2.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
-.card i:nth-child(1){
-  padding-right:0.3rem ;
+.alertb {
+	position: absolute;
+	right: 0;
+	margin: 1rem;
+	width: auto;
 }
-.card i:hover{
-  opacity: 1;
-  transform: scale(1.3);
+.addNote {
+	width: 40%;
+	min-width: 30rem;
+	height: 100%;
+	padding: 3rem;
+	display: flex;
+	justify-content: flex-start;
 }
-.card{
-  transition: all 0.2s;
-  box-shadow:0.2rem 0.2rem 0.5rem -0.2rem grey ;
+.addNote-box {
+  width: 100%;
+	padding: 2rem;
+	border-radius: 1rem;
+	background-color: #0c2941;
+}
+.home-inner {
+	display: flex;
+}
+.mynavbar {
+	height: 4rem;
+	box-shadow: 0.1rem 0.1rem 0.5rem -0.1rem rgb(0, 0, 0);
+}
+.myNotes {
+	padding: 3rem;
+	width: 60%;
+}
+
+.login-btns {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.myNotes-head {
+	background-color: #0c2941;
+	width: 100%;
+	padding: 1rem;
+	border-radius: 0.5rem;
+}
+
+  .nav-menu-toggle{
+    display: none;;
+  }
+
+  .navbar-items{
+    display: flex;
+  }
+
+
+@media only screen and (max-width: 600px) {
+  .myNotes {
+    display: none;
+		box-shadow: 0.1rem 0.1rem 0.5rem -0.1rem rgb(0, 0, 0);
+	}
+	.addNote {
+    width: 100%;
+		min-width: unset;
+		padding: 1rem;
+	}
   
-}
-.card:hover{
- transform: scale(1.01);
- box-shadow:0.2rem 0.2rem 0.5rem -0.1rem grey ;
-}
-.form-control::placeholder{
- color: grey;
-
-}
-.form-control{
-  border: none;
-  color: rgb(218, 244, 240);
-  box-shadow: inset 0rem 0rem 0.3rem -0.1rem rgb(13, 8, 8);
-}
-.form-control:focus{
-  background-color: #143a59;
-  box-shadow: inset 0rem 0rem 0.4rem -0.1rem rgb(13, 8, 8);
-  border: none;
-  color: rgb(218, 244, 240);
-}
-.pallete{
-  position: relative;
-  width: 2rem;
-  height: 2rem;
-  border-radius:0.2rem ;
-  right:1vw ;
-}
-textarea{
-  height: 15vh;
-  max-height: 25vh;
-}
-
-.bg-skyb{
-  background-color: #124671;
-}
-
-.addNote{
-  width: 30rem;
-}
-.page{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.page-container{
-  padding: 1.5rem;
-  width: 35rem;
-  height: 100%;
-  background-color: #0c2941;
-}
-.page-image{
-  width: 100%;
-  height: calc(100vh - 4rem) ;
-  background: url('./images/anime2.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.alertb{
-  position: absolute;
-  right: 0;
-  margin: 1rem;
-  width: auto;
-}
-.addNote{
-  width: 40%;
-  min-width: 30rem;
-  height: 100%;
-  padding: 3rem;
-  display: flex;
-  justify-content: flex-start;
-}
-.addNote-box{
-  width: 100%;
-  padding: 2rem;
-  border-radius: 1rem;
-  background-color: #0c2941;
-}
-.home-inner{
-  display: flex;
-}
-.mynavbar{
-  height: 4rem;
-  box-shadow: 0.1rem 0.1rem 0.5rem -0.1rem rgb(0, 0, 0);
-}
-.myNotes{
-  padding: 3rem;
-  width: 60%;
-}
-
-.login-btns{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.note-item{
-  width: 30%;
-}
-.myNotes-head{
-  background-color: #0c2941;
-  width: 100%;
-  padding: 1rem;
-  border-radius: 0.5rem;
+  .navbar-items{
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: calc(100vh - 4rem);
+    top: 4rem;
+    left: 0;
+    background-color: #0c2941;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-links{
+    margin-right: 0 !important;
+  }
+  
+  .nav-menu-toggle{
+    display: flex;
+  }
+	.addNote-box {
+		padding: 2rem;
+    width: 100%;
+		border-radius: 1rem;
+	}
 }

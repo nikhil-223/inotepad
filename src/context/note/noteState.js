@@ -139,7 +139,9 @@ const NoteState = (props) => {
 		const json = await response.json();
 		console.log(json.authtoken);
 		if (json.authtoken)
-		{	history("/login");
+		{	
+			localStorage.setItem("token", json.authtoken);
+			history("/home");
 			document.querySelector(".signup").style.display="none";
 			showalert({ type: "success", message: "Success: Signed in" });
 		} 
